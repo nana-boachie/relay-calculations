@@ -1,7 +1,7 @@
 # relay-calculations
 To make my life easier
 
-Certainly! The Inverse Time Overcurrent (TOC/IDMT) relay trip time is calculated based on the IEC 60255 standard and the IEEE C37.112-1996 protection curves. Let’s explore the formula for the IDMT curve according to IEC 60255:
+The Inverse Time Overcurrent (TOC/IDMT) relay trip time is calculated using the IEC 60255 standard and the IEEE C37.112-1996 protection curves. Let’s explore the formula for the IDMT curve according to IEC 60255:
 
 
 IDMT Curve Formula (IEC 60255):
