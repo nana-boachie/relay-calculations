@@ -80,9 +80,9 @@ def ask_to_continue():
     """
     while True:
         user_input = input("Do you wish to continue? (yes/no): ").lower()
-        if user_input == "yes" or "y":
+        if user_input == "yes" or user_input == "y":
             return True
-        elif user_input == "no" or "n":
+        elif user_input == "no" or user_input == "n":
             return False
         else:
             print("Invalid input. Please enter 'yes' or 'no'.")
