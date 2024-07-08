@@ -40,9 +40,7 @@ if chosen_curve == "iec":
             a = 1
             k = 120
         operating_time = mf.calculate_operating_time_iec(tms, k, psm, a)
-        print(operating_time)
-
-
+        print(f"Operating time equals: {operating_time:.2f} seconds")
 elif chosen_curve == "ieee":
     curve_type = mf.select_ieee_curve_type()
     while True:
@@ -67,4 +65,4 @@ elif chosen_curve == "ieee":
             a = .1217
             k = 28.2
         operating_time = mf.calculate_operating_time_ieee(tms, k, psm, a)
-        print(operating_time)
+        print(f"Operating time equals: {operating_time:.2f} seconds")

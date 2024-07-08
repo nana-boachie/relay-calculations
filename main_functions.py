@@ -16,7 +16,7 @@ def quit_program():
 
 def get_user_choice(option1, option2):
     while True:
-        user_input = input(f"Choose {option1} , {option2} or type 'q' to quit: ").lower()
+        user_input = input(f"Choose curve {option1} / {option2}: ").lower()
         if user_input.lower() == option1.lower():
             # print(f"You chose {option1}!")
             # Your code for option 1 goes here
