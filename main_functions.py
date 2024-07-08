@@ -1,17 +1,30 @@
 from typing import Any
 
 
+def quit_program():
+    """
+    Allows the user to quit the program by typing 'q' or 'quit'.
+    """
+    while True:
+        user_input = input("Type 'q' or 'quit' to exit the program: ").lower()
+        if user_input in ["q", "quit"]:
+            print("Exiting the program. Goodbye!")
+            break
+        else:
+            print("Invalid input. Please type 'q' or 'quit' to exit.")
+
+
 def get_user_choice(option1, option2):
     while True:
-        user_input = input(f"Choose {option1} or {option2}: ")
+        user_input = input(f"Choose {option1} , {option2} or type 'q' to quit: ").lower()
         if user_input.lower() == option1.lower():
             # print(f"You chose {option1}!")
             # Your code for option 1 goes here
-            return user_input.lower()  # Return the choice
+            return user_input  # Return the choice
         elif user_input.lower() == option2.lower():
             # print(f"You chose {option2}!")
             # Your code for option 2 goes here
-            return user_input.lower()  # Return the choice
+            return user_input  # Return the choice
         else:
             print("Invalid choice. Please enter a valid option.")
 
@@ -26,7 +39,7 @@ def calculate_operating_time_iec(tms, k, psm, a):
 
 def calculate_operating_time_ieee(tms, k, psm, a):
     try:
-        operating_time = tms * ((k(psm ** a) - 1)/k-1)
+        operating_time: float | Any = tms * (((k*(psm ** a)) - 1)/(k-1))
         return operating_time
     except ZeroDivisionError:
         return "Error: Division by zero occurred. Please check the values of 'psm' and 'a'."
@@ -56,3 +69,20 @@ def select_ieee_curve_type():
                 print("Invalid input. Please enter a number between 1 and 3.")
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
+
+
+def ask_to_continue():
+    """
+    Asks the user if they wish to continue.
+
+    Returns:
+        bool: True if the user wants to continue, False otherwise.
+    """
+    while True:
+        user_input = input("Do you wish to continue? (yes/no): ").lower()
+        if user_input == "yes" or "y":
+            return True
+        elif user_input == "no" or "n":
+            return False
+        else:
+            print("Invalid input. Please enter 'yes' or 'no'.")

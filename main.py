@@ -1,23 +1,32 @@
 import main_functions as mf
 
-# Example usage:
+# Curves:
 curve1 = "IEC"
 curve2 = "IEEE"
+
 # Example usage:
 tms = 10  # Replace with your actual value
 k = 5  # Replace with your actual value
 psm = 2  # Replace with your actual value
 a = 3  # Replace with your actual value
 
-if __name__ == "__main__":
-    chosen_curve = mf.get_user_choice(curve1, curve2)
-    """print(f"User chose: {chosen_curve.lower()}")
-    
-    chosen_property"""
+
+chosen_curve = mf.get_user_choice(curve1, curve2)
+if chosen_curve == "iec":
     curve_type = mf.select_iec_curve_type()
-    if chosen_curve == "iec":
-        psm = float(input("psm :"))
-        tms = float(input("tsm :"))
+
+    while True:
+        try:
+            psm = float(input("Enter the pickup setting multiplier (psm): "))
+            tms = float(input("Enter the time multiplier setting (tsm): "))
+        except ValueError:
+            print("Invalid input. Please enter valid numeric values.")
+            if mf.ask_to_continue():
+                print("Continuing with the program...")
+                continue
+            else:
+                print("Exiting. Goodbye!")
+                break
         if curve_type == 1:
             a = .020
             k = 0.140
@@ -32,9 +41,22 @@ if __name__ == "__main__":
             k = 120
         operating_time = mf.calculate_operating_time_iec(tms, k, psm, a)
         print(operating_time)
-    elif chosen_curve == "ieee":
-        psm = float(input("psm :"))
-        tms = float(input("tsm :"))
+
+
+elif chosen_curve == "ieee":
+    curve_type = mf.select_ieee_curve_type()
+    while True:
+        try:
+            psm = float(input("Enter the pickup setting multiplier (psm): "))
+            tms = float(input("Enter the time multiplier setting (tsm): "))
+        except ValueError:
+            print("Invalid input. Please enter valid numeric values.")
+            if mf.ask_to_continue():
+                print("Continuing with the program...")
+                continue
+            else:
+                print("Exiting. Goodbye!")
+                break
         if curve_type == 1:
             a = .020
             k = 0.0515
@@ -44,6 +66,5 @@ if __name__ == "__main__":
         elif curve_type == 3:
             a = .1217
             k = 28.2
-
         operating_time = mf.calculate_operating_time_ieee(tms, k, psm, a)
         print(operating_time)
