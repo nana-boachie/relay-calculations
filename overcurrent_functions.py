@@ -1,8 +1,5 @@
-"""IEC and IEEE OVERCURRENT FUNCTIONS"""
-
-
-
-    """
+"""
+IEC and IEEE OVERCURRENT FUNCTIONS
 
 
 

@@ -68,4 +68,3 @@ elif chosen_curve == "ieee":
             k = 28.2
         operating_time = mf.calculate_operating_time_ieee(tms, k, psm, a)
         print(operating_time)
-
